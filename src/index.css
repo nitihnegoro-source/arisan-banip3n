@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply antialiased selection:bg-emerald-500 selection:text-white;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  #main-sidebar,
+  #main-header,
+  #sidebar-backdrop,
+  #app-footer,
+  .no-print,
+  button:not(.print-allow) {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .lg\:pl-72 {
+    padding-left: 0 !important;
+  }
+}

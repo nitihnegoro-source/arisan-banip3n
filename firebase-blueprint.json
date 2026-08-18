@@ -1,0 +1,106 @@
+{
+  "entities": {
+    "members": {
+      "title": "Member",
+      "description": "Daftar anggota paguyuban Bani P3N",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "no": { "type": "number" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "status": { "type": "string" },
+        "isArisanParticipant": { "type": "boolean" },
+        "isIuranParticipant": { "type": "boolean" },
+        "joinDate": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "no", "name", "category", "status"]
+    },
+    "payments": {
+      "title": "MemberPaymentHistory",
+      "description": "Riwayat pembayaran arisan dan iuran per anggota",
+      "type": "object",
+      "properties": {
+        "memberId": { "type": "string" },
+        "arisan": { "type": "object" },
+        "iuran": { "type": "object" }
+      },
+      "required": ["memberId"]
+    },
+    "cash_transactions": {
+      "title": "CashTransaction",
+      "description": "Catatan transaksi kas masuk dan kas keluar",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "category": { "type": "string" },
+        "amount": { "type": "number" },
+        "date": { "type": "string" },
+        "description": { "type": "string" },
+        "sourceOrRecipient": { "type": "string" },
+        "receiptNo": { "type": "string" },
+        "paymentMethod": { "type": "string" }
+      },
+      "required": ["id", "type", "category", "amount", "date", "description"]
+    },
+    "lottery_winners": {
+      "title": "LotteryWinner",
+      "description": "Daftar pemenang kocokan arisan per putaran",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "roundNumber": { "type": "number" },
+        "memberId": { "type": "string" },
+        "memberName": { "type": "string" },
+        "memberCategory": { "type": "string" },
+        "drawDate": { "type": "string" },
+        "prizeAmount": { "type": "number" },
+        "notes": { "type": "string" },
+        "isPaidOut": { "type": "boolean" }
+      },
+      "required": ["id", "roundNumber", "memberId", "memberName", "drawDate", "prizeAmount"]
+    },
+    "app_state": {
+      "title": "AppState",
+      "description": "Profil paguyuban dan konfigurasi global",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "profile": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id"]
+    }
+  },
+  "firestore": {
+    "members": {
+      "path": "members/{memberId}",
+      "read": "true",
+      "write": "true"
+    },
+    "payments": {
+      "path": "payments/{paymentId}",
+      "read": "true",
+      "write": "true"
+    },
+    "cash_transactions": {
+      "path": "cash_transactions/{transactionId}",
+      "read": "true",
+      "write": "true"
+    },
+    "lottery_winners": {
+      "path": "lottery_winners/{winnerId}",
+      "read": "true",
+      "write": "true"
+    },
+    "app_state": {
+      "path": "app_state/{stateId}",
+      "read": "true",
+      "write": "true"
+    }
+  }
+}

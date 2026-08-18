@@ -1,0 +1,10 @@
+{
+  "name": "Remix Arisan Bani P3N - KUA Kedungbanteng",
+  "description": "Sistem Informasi \u0026 Manajemen Arisan, Iuran, Kas Masuk \u0026 Keluar, serta Kocokan Otomatis Paguyuban Bani P3N KUA Kedungbanteng.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
